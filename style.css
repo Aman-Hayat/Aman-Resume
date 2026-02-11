@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif; /* Fallback font family */
     text-align: center; /* Center-align text */
     margin: 0; /* Remove default margin */
-    background-color: #FC5656; /* Set background color to light pink */
+    background-color: #FADADD; /* Set background color to light pink */
 }
 
 #container {
@@ -20,7 +20,7 @@ body {
 }
 
 #question {
-    font-family: 'Dancing Script', cursive; /* Apply Sacramento font to the question */
+    font-family: 'Sacramento', cursive; /* Apply Sacramento font to the question */
     font-size: 52px; /* Set font size for the question */
 }
 
@@ -32,11 +32,32 @@ button {
     padding: 10px 20px; /* Set padding for buttons */
     margin: 0 10px; /* Set margin around buttons */
     font-size: 26px; /* Set font size for buttons */
-    font-family: 'Dancing Script', cursive; /* Apply Sacramento font to the options */
-    background-color: #E32424; /* Set button background color */
+    font-family: 'Sacramento', cursive; /* Apply Sacramento font to the options */
+    background-color: #FB607F; /* Set button background color */
     color: white; /* Set text color to white */
     border: none; /* Remove button border */
     cursor: pointer; /* Set cursor to pointer on hover */
 }
 
+#love-text-container {
+    position: fixed; /* Fixed positioning to cover entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through to elements below */
+    z-index: 1; /* Behind the main content */
+}
 
+.love-text {
+    position: absolute; /* Position each text absolutely */
+    font-family: 'Sacramento', cursive; /* Match the main font */
+    color: #FF69B4; /* Hot pink color */
+    white-space: nowrap; /* Prevent text wrapping */
+    user-select: none; /* Prevent text selection */
+}
+
+#container {
+    position: relative; /* Make container positioned */
+    z-index: 10; /* Bring main content to front */
+}
