@@ -81,39 +81,42 @@ function displayCatHeart() {
 // Function to create "i love you" text scattered all over the screen
 function createLoveTexts() {
     var textContainer = document.getElementById('love-text-container');
-    var numberOfTexts = 70; // Number of "i love you" texts to display
+    var numberOfTexts = 180; // Number of "i love you" texts to display
     
-    // Create a grid-like distribution with some randomness
-    var columns = 10;
-    var rows = 7;
+    console.log('Creating ' + numberOfTexts + ' love texts'); // Debug message
+    
+    // Create a perfect grid distribution with NO randomness
+    var columns = 15; // 15 columns
+    var rows = 12;    // 12 rows
     
     for (var i = 0; i < numberOfTexts; i++) {
         var loveText = document.createElement('div');
         loveText.className = 'love-text';
         loveText.innerText = 'i love you';
         
-        // Calculate grid position with some random offset
+        // Calculate grid position
         var col = i % columns;
         var row = Math.floor(i / columns);
         
-        // Evenly distribute with slight randomness
-        var baseLeft = (col * 10) + 2; // Distribute across width
-        var baseTop = (row * 14) + 2;  // Distribute across height
+        // Perfect even distribution - NO randomness
+        var baseLeft = (col * 6.67) + 1; // Distribute evenly across width (100/15 = 6.67)
+        var baseTop = (row * 8.33) + 1;  // Distribute evenly across height (100/12 = 8.33)
         
-        loveText.style.left = (baseLeft + (Math.random() * 6 - 3)) + '%';
-        loveText.style.top = (baseTop + (Math.random() * 8 - 4)) + '%';
+        loveText.style.left = baseLeft + '%';
+        loveText.style.top = baseTop + '%';
         
         // Keep text horizontal (no rotation)
         loveText.style.transform = 'none';
         
-        // Vary font size between 20px and 36px
-        loveText.style.fontSize = (Math.random() * 16 + 20) + 'px';
+        // Fixed font size for consistency
+        loveText.style.fontSize = '24px';
         
-        // Random opacity between 0.35 and 0.55
-        loveText.style.opacity = Math.random() * 0.2 + 0.35;
+        // Fixed opacity
+        loveText.style.opacity = 0.5;
         
         textContainer.appendChild(loveText);
     }
+    console.log('Finished creating love texts'); // Debug message
 }
 
 // Display the cat.gif initially
