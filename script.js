@@ -81,25 +81,36 @@ function displayCatHeart() {
 // Function to create "i love you" text scattered all over the screen
 function createLoveTexts() {
     var textContainer = document.getElementById('love-text-container');
-    var numberOfTexts = 20; // Number of "i love you" texts to display
+    var numberOfTexts = 70; // Number of "i love you" texts to display
+    
+    // Create a grid-like distribution with some randomness
+    var columns = 10;
+    var rows = 7;
     
     for (var i = 0; i < numberOfTexts; i++) {
         var loveText = document.createElement('div');
         loveText.className = 'love-text';
         loveText.innerText = 'i love you';
         
-        // Random position
-        loveText.style.left = Math.random() * 90 + '%';
-        loveText.style.top = Math.random() * 90 + '%';
+        // Calculate grid position with some random offset
+        var col = i % columns;
+        var row = Math.floor(i / columns);
         
-        // Random rotation
-        loveText.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+        // Evenly distribute with slight randomness
+        var baseLeft = (col * 10) + 2; // Distribute across width
+        var baseTop = (row * 14) + 2;  // Distribute across height
         
-        // Random font size between 20px and 50px
-        loveText.style.fontSize = (Math.random() * 30 + 20) + 'px';
+        loveText.style.left = (baseLeft + (Math.random() * 6 - 3)) + '%';
+        loveText.style.top = (baseTop + (Math.random() * 8 - 4)) + '%';
         
-        // Random opacity between 0.3 and 0.7
-        loveText.style.opacity = Math.random() * 0.4 + 0.3;
+        // Keep text horizontal (no rotation)
+        loveText.style.transform = 'none';
+        
+        // Vary font size between 20px and 36px
+        loveText.style.fontSize = (Math.random() * 16 + 20) + 'px';
+        
+        // Random opacity between 0.35 and 0.55
+        loveText.style.opacity = Math.random() * 0.2 + 0.35;
         
         textContainer.appendChild(loveText);
     }
