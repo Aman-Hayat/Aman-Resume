@@ -73,7 +73,36 @@ function displayCatHeart() {
         imageContainer.appendChild(catHeartImage);
         // Hide the options container
         document.getElementById('options').style.display = 'none';
+        // Add "i love you" text all over the screen
+        createLoveTexts();
     };
+}
+
+// Function to create "i love you" text scattered all over the screen
+function createLoveTexts() {
+    var textContainer = document.getElementById('love-text-container');
+    var numberOfTexts = 20; // Number of "i love you" texts to display
+    
+    for (var i = 0; i < numberOfTexts; i++) {
+        var loveText = document.createElement('div');
+        loveText.className = 'love-text';
+        loveText.innerText = 'i love you';
+        
+        // Random position
+        loveText.style.left = Math.random() * 90 + '%';
+        loveText.style.top = Math.random() * 90 + '%';
+        
+        // Random rotation
+        loveText.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+        
+        // Random font size between 20px and 50px
+        loveText.style.fontSize = (Math.random() * 30 + 20) + 'px';
+        
+        // Random opacity between 0.3 and 0.7
+        loveText.style.opacity = Math.random() * 0.4 + 0.3;
+        
+        textContainer.appendChild(loveText);
+    }
 }
 
 // Display the cat.gif initially
